@@ -1,113 +1,124 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="UTF-8">
+  <meta content="en-us" http-equiv="Content-Language" />
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Short Story</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 40px 20px;
-      background: #f5f3ee;
-      color: #222;
-      font-family: Georgia, "Times New Roman", serif;
-    }
-
-    .page {
-      max-width: 720px;
-      margin: 0 auto;
-      background: white;
-      padding: 48px 36px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-      border-radius: 16px;
-    }
-
-    h1 {
-      margin-top: 0;
-      margin-bottom: 32px;
-      font-size: 36px;
-      font-weight: normal;
-      text-align: center;
-    }
-
-    #text-content {
-      font-size: 20px;
-      line-height: 1.75;
-    }
-
-    #text-content p {
-      margin: 0 0 1em 0;
-      text-indent: 20px;
-    }
-
-    .loading,
-    .error {
-      text-indent: 0 !important;
-      font-style: italic;
-    }
-
-    .error {
-      color: #a00000;
-    }
-
-    @media (max-width: 700px) {
-      body {
-        padding: 20px 12px;
-      }
-
-      .page {
-        padding: 28px 20px;
-      }
-
-      h1 {
-        font-size: 28px;
-      }
-
-      #text-content {
-        font-size: 18px;
-      }
-    }
-  </style>
+  <title>html backup</title>
 </head>
-<body>
-  <main class="page">
-    <h1>Short Story</h1>
-    <div id="text-content">
-      <p class="loading">Loading story...</p>
-    </div>
-  </main>
+<style>
+  body { 
+    background: #e1e1e1;
+  }
 
-  <script>
-    fetch("001KZD.txt")
-      .then(response => {
-        if (!response.ok) {
-          throw new Error("Could not load the text file.");
-        }
-        return response.text();
-      })
-      .then(data => {
-        const paragraphs = data
-          .split(/\r?\n\r?\n/)
-          .map(p => p.trim())
-          .filter(p => p.length > 0);
-
-        const html = paragraphs
-          .map(p => `<p>${escapeHtml(p)}</p>`)
-          .join("");
-
-        document.getElementById("text-content").innerHTML = html;
-      })
-      .catch(error => {
-        document.getElementById("text-content").innerHTML =
-          `<p class="error">Could not load the story.</p>`;
-        console.error(error);
-      });
-
-    function escapeHtml(text) {
-      const div = document.createElement("div");
-      div.textContent = text;
-      return div.innerHTML;
+  #content {
+    margin-left: auto;
+    margin-right: auto;
+    max-width:800px;
+    font-family: verdana, sans-serif;
     }
-  </script>
+    
+    
+  .title{
+    padding-left:16px;
+    color: #444;
+    font-size: 22px;
+    font-weight: bold;
+    }
+    
+  .signature{
+    padding-right: 16px;
+    padding-top: 10px;
+    text-align: right;
+    color: #444;
+    font-size: 16px;
+    font-weight: bold;
+    }
+    
+  .paragraph{
+  
+    text-indent:16px;
+
+    margin: 6px 10px;
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:5px;
+    padding-bottom:5px;
+    background-color:#fff;
+    box-shadow: 0px 2px rgba( 0, 0, 0, 0.1 );
+
+    color: #333;
+    -moz-border-radius: 1px;
+    -webkit-border-radius: 1px;
+    border-radius: 1px;
+
+    font-size: 16px;
+    
+    }
+    
+  .line{
+    
+    text-indent:2px;
+    
+    margin: 2px 0px 2px 24px;
+    
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:5px;
+    padding-bottom:5px;
+    
+    background-color:#fafafa;
+    box-shadow: 0px 2px rgba( 0, 0, 0, 0.1 );
+    
+    color: #444;
+    -moz-border-radius: 1px;
+    -webkit-border-radius: 1px;
+    border-radius: 1px;
+    
+    font-size: 16px;
+    
+    display: inline-block;
+  
+  }
+    
+    
+</style>
+<body>
+<div id="content">
+
+<div class="title"> Title </div>
+  
+<div class="paragraph">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. 
+</div>
+
+<div class="line">
+Sed dignissim lacinia nunc.
+</div></br><div class="line">
+Curabitur tortor.
+</div></br><div class="line">
+Pellentesque nibh.
+</div>
+
+
+
+<div class="paragraph">
+Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam.
+</div> 
+<div class="paragraph">
+Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. 
+</div>
+
+<div class="paragraph">
+Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam. Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede. 
+
+</div>
+
+
+<div class="signature">
+Signature
+</div>
+
+</div>
 </body>
 </html>
