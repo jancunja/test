@@ -1,56 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Markdown Test</title>
-
-  <!-- Load markdown-it -->
-  <script src="js/markdown-it.min.js"></script>
-
-  <style>
-    body {
-      max-width: 700px;
-      margin: 40px auto;
-      font-family: Georgia, serif;
-    }
-
-    p {
-      text-indent: 20px;
-      margin-top: 0;
-      margin-bottom: 0em;
-    }
-
-    h1 {
-      text-indent: 0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-
-<h1>Markdown-it Test</h1>
-
-<div id="content">Loading...</div>
-
-<script>
-  async function loadMarkdown() {
-    const response = await fetch("./story.md");
-    let text = await response.text();
-
-    // Convert EVERY newline into a paragraph
-    const normalized = text.replace(/\r\n/g, "\n");
-    text = normalized.split("\n").map((line) => line).join("\n\n");
-
-    const md = window.markdownit({
-      breaks: false
-    });
-
-    const html = md.render(text);
-
-    document.getElementById("content").innerHTML = html;
-  }
-
-  loadMarkdown();
-</script>
-
+    <main class="container">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+            <div class="box">5</div>
+            <div class="box">6</div>
+    </main>
 </body>
+
 </html>
